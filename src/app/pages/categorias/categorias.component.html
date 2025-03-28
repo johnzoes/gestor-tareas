@@ -1,0 +1,11 @@
+<h2>Categorías</h2>
+
+<ul>
+    @for (categoria of categorias; track categoria.id) {
+      <li>{{ categoria.nombre }}</li>
+    }
+  </ul>
+  
+
+<input [(ngModel)]="nuevaCategoria" placeholder="Nueva categoría" />
+<button (click)="agregarCategoria()">Agregar</button>

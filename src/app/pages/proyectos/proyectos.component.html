@@ -1,0 +1,21 @@
+<h2>Proyectos</h2>
+
+<ul>
+  <li *ngFor="let proyecto of proyectos">
+    {{ proyecto.nombre }} (Categoría: {{ proyecto.categoria_id }})
+  </li>
+</ul>
+
+<h3>Agregar Proyecto</h3>
+
+<input [(ngModel)]="nuevoProyecto" placeholder="Nombre del proyecto" />
+
+<select [(ngModel)]="categoriaSeleccionada">
+  <option value="" disabled selected>Seleccione una categoría</option>
+  <option *ngFor="let categoria of categorias" [value]="categoria.id">
+    {{ categoria.nombre }}
+  </option>
+</select>
+
+
+<button (click)="agregarProyecto()">Agregar</button>

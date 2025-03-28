@@ -1,0 +1,22 @@
+<h2>Tareas</h2>
+
+<ul>
+  <li *ngFor="let tarea of tareas">
+    {{ tarea.descripcion }} 
+    <span *ngIf="tarea.completado">[Completada]</span>
+    <span *ngIf="!tarea.completado">[Pendiente]</span>
+    <button (click)="completarTarea(tarea.id)" [disabled]="tarea.completado">
+      Completar
+    </button>
+  </li>
+</ul>
+
+<h3>Agregar Tarea</h3>
+<input [(ngModel)]="nuevaTarea.descripcion" placeholder="Descripción de la tarea" />
+<select [(ngModel)]="nuevaTarea.proyecto_id">
+  <option [value]="null" disabled>Seleccionar Proyecto</option>
+  <option *ngFor="let proyecto of proyectos" [value]="proyecto.id">
+    {{ proyecto.nombre }}
+  </option>
+</select>
+<button (click)="agregarTarea()">Agregar</button>
